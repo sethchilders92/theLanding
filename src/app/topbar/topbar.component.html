@@ -1,0 +1,46 @@
+<nav class="grey darken-2">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo right">The Landing</a>
+
+    <!-- Menu icon that opens sidenav -->
+    <a materialize="sideNav" [materializeParams]="sidenavParams" [materializeActions]="sidenavActions" data-activates="nav-mobile"
+      class="button-collapse hide-on-large-only">
+      <i class="material-icons white-text menu" (click)="menuIsOpen = true">menu</i>
+    </a>
+
+    <!-- The menu items on a large screen -->
+    <ul class="left hide-on-med-and-down">
+      <li *ngFor="let menuItem of menuItems">
+        <a class="white-text" [routerLink]="menuItem.route">{{ menuItem.title }}</a>
+      </li>
+    </ul>
+
+    <!-- Sidenav slide out -->
+    <ul id="nav-mobile" class="side-nav">
+      <li>
+        <!-- Images and text overlay on the sidenav -->
+        <div class="user-view">
+          <div class="background">
+            <img src="https://rexaptassets.s3.amazonaws.com/5aa6e1ce49cd5Outside.jpg" height="200px" width="300px">
+          </div>
+          <a href="#user">
+            <img class="circle" src="https://rexaptassets.s3.amazonaws.com/5aa6e1ce49cd5Outside.jpg">
+          </a>
+          <a href="#name">
+            <span class="white-text name">John Doe</span>
+          </a>
+          <a href="#email">
+            <span class="white-text email">jdandturk@gmail.com</span>
+          </a>
+        </div>
+      </li>
+
+      <!-- Menu items on the sidenav -->
+      <li *ngFor="let menuItem of menuItems">
+        <a class="black-text" (click)="close(); menuIsOpen = false" [routerLink]="menuItem.route">{{ menuItem.title }}</a>
+      </li>
+      <div class="divider">
+      </div>
+    </ul>
+  </div>
+</nav>
