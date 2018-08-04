@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import { MenuItem } from '../interfaces';
+import { MenuItem, Schedule, ScheduleItem } from '../interfaces';
 
 @Component({
   selector: 'app-topbar',
@@ -13,16 +13,24 @@ export class TopbarComponent {
   menuItems: MenuItem[];
   sidenavActions: EventEmitter<any>;
   sidenavParams: any[];
+  schedule: Schedule;
   
   constructor() {
     this.sidenavActions = new EventEmitter<any>();
     this.sidenavParams = [];
 
+    // populate the menu
     this.menuItems = [
           { title: "Home", route: '/home' },
           { title: "Schedule", route: '/schedule' },
           { title: "Map", route: '/map' }
     ];
+
+    // add some times to the schedule
+    // this.schedule.times = [{
+    //   arrival: new Date(),
+    //   departure: new Date()
+    // }];
   }
   
   close() {

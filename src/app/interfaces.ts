@@ -6,3 +6,18 @@ export interface MenuItem {
     /** Route for the router */
     route: string;
 }
+
+export interface Schedule {
+    startLocation: string;
+
+    endLocation: string;
+
+    times: ScheduleItem[]; 
+}
+
+export interface ScheduleItem {
+
+    arrival: Date;
+
+    departure: Date;
+}

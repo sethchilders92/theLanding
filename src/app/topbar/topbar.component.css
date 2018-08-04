@@ -1,3 +1,6 @@
 .menu {
     cursor: pointer;
 }
+nav {
+    height: var(--topbar-height);
+}

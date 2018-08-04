@@ -6,8 +6,8 @@ import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { MapComponent } from './map/map.component';
 
 export const appRoutes: Routes = [
   {
@@ -17,24 +17,24 @@ export const appRoutes: Routes = [
   },
   {
       path: 'home',
-      component: TopbarComponent,
+      component: ScheduleComponent,
   },
   {
     path: 'schedule', 
     component: ScheduleComponent
   },
-  // {
-  //   path: 'map',
-  //   component: MapComponent
-  // }
+  {
+    path: 'map',
+    component: MapComponent
+  }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
-    SidenavComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    MapComponent
   ],
   imports: [
     RouterModule.forRoot(
