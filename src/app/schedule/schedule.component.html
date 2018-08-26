@@ -1,3 +1,26 @@
-<!-- <div *ngFor="let item of dataService.schedule">
-  <p>{{ item }}</p>
-</div> -->
+<ul class="collection with-header">
+  <li class="collection-header"><h4>Green Shuttle</h4></li>
+  <li class="collection-item" *ngFor="let item of dataService.schedule">{{item.arrival}}</li>
+</ul>
+<ul class="collection with-header">
+  <li class="collection-header"><h4>Red Shuttle</h4></li>
+  <li class="collection-item" *ngFor="let item of dataService.schedule">{{item.departure}}</li>
+</ul>
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Destination</th>
+      <th>Green Shuttle</th>
+      <th>Red Shuttle</th>
+      <th>The Landing Shuttle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of dataService.schedule">
+      <td>Walmart</td>
+      <td>{{item.arrival}}</td>
+      <td>{{item.departure}}</td>
+    </tr>
+  </tbody>
+</table>

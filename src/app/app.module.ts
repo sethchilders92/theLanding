@@ -20,7 +20,7 @@ export const appRoutes: Routes = [
       component: ScheduleComponent,
   },
   {
-    path: 'schedule', 
+    path: 'schedule',
     component: ScheduleComponent
   },
   {

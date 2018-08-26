@@ -8,7 +8,7 @@ import { DataService } from '../data.service';
 })
 export class ScheduleComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  constructor(public dataService: DataService) { }
 
   ngOnInit() {
   }
