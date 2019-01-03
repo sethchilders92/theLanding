@@ -12,7 +12,7 @@ export interface Schedule {
 
     endLocation: string;
 
-    times: ScheduleItem[]; 
+    times: ScheduleItem[];
 }
 
 export interface ScheduleItem {

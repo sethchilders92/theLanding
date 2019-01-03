@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Route, Router } from '@angular/router';
+
 declare const google: any;
 
 @Component({
@@ -7,21 +10,24 @@ declare const google: any;
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  // map: google.maps.Map;
 
-  getLocation() {
-  }
-
-  showPosition() {
-  }
+  constructor(public dataService: DataService) { }
 
   ngOnInit() {
-    let map;
+    let map = google.maps.Map;
 
     function setMap() {
-      map = new google.maps.Map(document.getElementById('google-map'), {
-        zoom: 15
-      });
+      // disable controls if on the homepage map
+      if (window.location.toString().includes('home')) {
+        map = new google.maps.Map(document.getElementById('google-map'), {
+          zoom: 16,
+          disableDefaultUI: true
+        });
+      } else {
+        map = new google.maps.Map(document.getElementById('google-map'), {
+          zoom: 15,
+        });
+      }
     }
 
     function getUserPostion() {
@@ -55,42 +61,59 @@ export class MapComponent implements OnInit {
     }
 
     function setMarkers(currentLocation) {
-      const hartGym = new google.maps.LatLng(43.819253, -111.786635);
-      const snowParkingLot = new google.maps.LatLng(43.820142, -111.784266);
+      const manwaringCenter = new google.maps.LatLng(43.817848, -111.784418);
+      const theLanding = new google.maps.LatLng(43.817204, -111.794373);
       const walmart = new google.maps.LatLng(43.8560, -111.7739);
+      const lLot = new google.maps.LatLng(43.811734, -111.782626);
+      const romney = new google.maps.LatLng(43.820142, -111.784076);
       // const im = 'https://www.robotwoods.com/dev/misc/bluecircle.png';
-      const im = '../../assets/location.png';
+      // const im = '../../assets/location.png';
 
       // center the map where the user is currently at or where the center was defined
-        map.setCenter(currentLocation);
+      map.setCenter(currentLocation);
 
-      const userMarker = new google.maps.Marker({
-        position: currentLocation,
-        icon: im
-      });
+      // const userMarker = new google.maps.Marker({
+      //   position: currentLocation,
+      //   // icon: im
+      // });
 
-      const hartMarker = new google.maps.Marker({
-        position: hartGym,
-        // animation: google.maps.Animation.BOUNCE,
+      const manwaringCenterMarker = new google.maps.Marker({
+        position: manwaringCenter,
+        label: 'MC',
         title: 'Hart Gym'
       });
 
-      const snowMarker = new google.maps.Marker({
-        position: snowParkingLot,
-        // animation: google.maps.Animation.DROP,
-        title: 'Snow Parking Lot',
+      const theLandingMarker = new google.maps.Marker({
+        position: theLanding,
+        label: 'L',
+        title: 'The Landing',
       });
 
       const walmartMarker = new google.maps.Marker({
         position: walmart,
+        label: 'W',
         title: 'Walmart',
       });
 
+      const lLotMarker = new google.maps.Marker({
+        position: lLot,
+        label: 'LL',
+        title: 'L-Lot',
+      });
+
+      const romneyMarker = new google.maps.Marker({
+        position: romney,
+        label: 'R',
+        title: 'Romney',
+      });
+
       /* Set the markers on the map */
-      hartMarker.setMap(map);
-      snowMarker.setMap(map);
+      manwaringCenterMarker.setMap(map);
+      theLandingMarker.setMap(map);
       walmartMarker.setMap(map);
-      userMarker.setMap(map);
+      lLotMarker.setMap(map);
+      romneyMarker.setMap(map);
+      // userMarker.setMap(map);
     }
 
     setMap();

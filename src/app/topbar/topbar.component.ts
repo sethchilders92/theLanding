@@ -14,31 +14,20 @@ export class TopbarComponent {
   sidenavActions: EventEmitter<any>;
   sidenavParams: any[];
   schedule: Schedule;
-  
+
   constructor() {
     this.sidenavActions = new EventEmitter<any>();
     this.sidenavParams = [];
 
     // populate the menu
     this.menuItems = [
-          { title: "Home", route: '/home' },
-          { title: "Schedule", route: '/schedule' },
-          { title: "Map", route: '/map' }
+          { title: 'Home', route: '/home' },
+          { title: 'Schedule', route: '/schedule' },
+          { title: 'Map', route: '/map' }
     ];
-
-    // add some times to the schedule
-    // this.schedule.times = [{
-    //   arrival: new Date(),
-    //   departure: new Date()
-    // }];
   }
-  
+
   close() {
     this.sidenavActions.emit({ action: 'sideNav', params: ['hide'] });
   }
-  
-  // openMenu() {
-  //   this.menuIsOpen = !this.menuIsOpen;
-  //   this.menuIsOpen = this.menuIsOpen ? true : false;
-  // }
 }

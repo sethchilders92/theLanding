@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { MapComponent } from './map/map.component';
+import { HomeComponent } from './home/home.component';
 
 export const appRoutes: Routes = [
   {
@@ -17,7 +18,7 @@ export const appRoutes: Routes = [
   },
   {
       path: 'home',
-      component: ScheduleComponent,
+      component: HomeComponent,
   },
   {
     path: 'schedule',
@@ -34,11 +35,14 @@ export const appRoutes: Routes = [
     AppComponent,
     TopbarComponent,
     ScheduleComponent,
-    MapComponent
+    MapComponent,
+    HomeComponent
   ],
   imports: [
+    // useHash is for rerouting in the browser on reload, seeing
+    // as the hosting service only recognizes the main domain address
     RouterModule.forRoot(
-      appRoutes
+      appRoutes, { useHash: true }
   ),
     BrowserModule,
     MaterializeModule

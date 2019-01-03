@@ -1,0 +1,5 @@
+table, thead, tbody, td, th {
+    margin: auto;
+    padding: auto;
+    text-align: center;
+}

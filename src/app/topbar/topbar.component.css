@@ -4,3 +4,6 @@
 nav {
     height: var(--topbar-height);
 }
+div.placeholder {
+    min-height: 100px;
+}
